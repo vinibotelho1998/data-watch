@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-10-27T13:11:18.874396+00:00",
+  "base_url": "http://127.0.0.1:5678",
+  "workflow_id": "portfolioWatch05",
+  "transport": "real HTTP; no mocks",
+  "cases": [
+    {
+      "case": "insert_and_alert",
+      "status": 200,
+      "inserted": 1,
+      "alert_count": 1
+    },
+    {
+      "case": "idempotent_retry",
+      "status": 200,
+      "duplicates": 1,
+      "alert_count": 0
+    },
+    {
+      "case": "conflicting_payload",
+      "status": 409
+    },
+    {
+      "case": "invalid_metric",
+      "status": 422
+    }
+  ],
+  "status": "passed"
+}

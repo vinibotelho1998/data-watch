@@ -1,0 +1,32 @@
+{
+  "n8n_version": "2.44.7",
+  "runners_mode": "external",
+  "source": "Read-only query of execution_entity in isolated vini-ai-portfolio n8n SQLite",
+  "workflow_id": "portfolioWatch05",
+  "executions": [
+    {
+      "id": 14,
+      "workflowId": "portfolioWatch05",
+      "status": "success",
+      "mode": "webhook"
+    },
+    {
+      "id": 13,
+      "workflowId": "portfolioWatch05",
+      "status": "success",
+      "mode": "webhook"
+    },
+    {
+      "id": 12,
+      "workflowId": "portfolioWatch05",
+      "status": "success",
+      "mode": "webhook"
+    },
+    {
+      "id": 11,
+      "workflowId": "portfolioWatch05",
+      "status": "success",
+      "mode": "webhook"
+    }
+  ]
+}

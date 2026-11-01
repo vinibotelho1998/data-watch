@@ -1,0 +1,101 @@
+{
+  "id": "portfolioWatch05",
+  "name": "Data Watch - ingestão e alertas locais",
+  "nodes": [
+    {
+      "parameters": {"httpMethod": "POST", "path": "data-watch-ingest", "responseMode": "responseNode", "options": {}},
+      "id": "776cfc0d-9930-42c8-94e2-2251991ed358",
+      "name": "Receber métricas",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 100],
+      "webhookId": "1298e96f-478d-4dd8-aaea-872ed2e55ac9"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://data-watch:8005/ingest",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body) }}",
+        "options": {"timeout": 10000, "response": {"response": {"fullResponse": true, "neverError": true, "responseFormat": "json"}}}
+      },
+      "id": "3b8cda93-1a17-438a-866a-92889bd44fa9",
+      "name": "Ingerir na API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [240, 100]
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nif (response.statusCode < 200 || response.statusCode >= 300) return [{ json: { statusCode: response.statusCode, body: response.body } }];\nconst result = response.body;\nif (!Array.isArray(result.new_anomalies)) throw new Error('Resposta da API sem new_anomalies');\nconst alerts = result.new_anomalies.map(item => ({ series_id: item.series_id, timestamp: item.timestamp, anomaly_score: item.score, threshold: result.threshold, model_version: item.model_version, message: 'Ponto sinalizado pelo modelo; revisar antes de agir.' }));\nreturn [{ json: { statusCode: response.statusCode, body: { inserted: result.inserted, duplicates: result.duplicates, alert_count: alerts.length, alerts } } }];"
+      },
+      "id": "bc7639e0-558d-4841-9326-d7b87403bfc4",
+      "name": "Preparar alertas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 100]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.body }}",
+        "options": {"responseCode": "={{ $json.statusCode }}"}
+      },
+      "id": "84b30c23-91cd-4c67-a98f-7006c68fce98",
+      "name": "Responder ao solicitante",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [720, 100]
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.first().json;\nif (result.statusCode !== 200 || !(result.body.alert_count > 0)) return [];\nreturn [{ json: result.body }];"
+      },
+      "id": "062fb7ef-40ca-4816-a186-e6460c7e3155",
+      "name": "Somente novos alertas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [960, 100]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:9000/alerts",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {"timeout": 10000}
+      },
+      "id": "c145962e-23ab-450e-ad13-6e302851008a",
+      "name": "Webhook de destino opcional",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1200, 100],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Integração local\nAPI pelo DNS Compose: http://data-watch:8005/ingest. Importe e publique portfolioWatch05; após publish via CLI, reinicie n8n para registrar /webhook/data-watch-ingest. Envie {rows:[...]}.\nO fluxo preserva 409/422 da API, responde o resumo e só encaminha lotes com novos alertas. O Code JS usa o sidecar externo de task runners do Compose.\nO último HTTP Request permanece DESABILITADO. A porta 9000 é exemplo de receptor local, não incluído. Configure seu receptor antes de habilitar. A resposta ao solicitante confirma ingestão, não entrega de notificação.\nReplays idênticos não recriam alertas. Arquivo importado inativo; sem credenciais ou envios externos por padrão.",
+        "height": 340,
+        "width": 1240
+      },
+      "id": "5b16778c-4c1a-46f4-87da-d980d53a6236",
+      "name": "Como configurar",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [0, -300]
+    }
+  ],
+  "connections": {
+    "Receber métricas": {"main": [[{"node": "Ingerir na API", "type": "main", "index": 0}]]},
+    "Ingerir na API": {"main": [[{"node": "Preparar alertas", "type": "main", "index": 0}]]},
+    "Preparar alertas": {"main": [[{"node": "Responder ao solicitante", "type": "main", "index": 0}]]},
+    "Responder ao solicitante": {"main": [[{"node": "Somente novos alertas", "type": "main", "index": 0}]]},
+    "Somente novos alertas": {"main": [[{"node": "Webhook de destino opcional", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "pinData": {},
+  "tags": []
+}
