@@ -4,7 +4,7 @@
 
 Um ponto de métricas chega à API: requisições, erros, latência e CPU. O serviço verifica se a combinação é incomum para o detector treinado, registra o evento e devolve as novas anomalias.
 
-O backend combina **Isolation Forest, FastAPI e SQLite**. Um fluxo n8n pode receber os lotes; retries idênticos não criam alertas duplicados.
+O detector de aprendizado de máquina usa **Isolation Forest**, treinado sobre um histórico sintético de métricas. FastAPI e SQLite cuidam da ingestão e da persistência; um fluxo n8n pode receber os lotes, e retries idênticos não criam alertas duplicados.
 
 > No replay sintético registrado, regras fixas detectaram mais falhas do que o modelo. Os dois resultados estão disponíveis para comparação.
 
