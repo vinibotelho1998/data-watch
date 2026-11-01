@@ -1,0 +1,25 @@
+Plano de commits — Data Watch
+
+A sequencia abaixo organiza as mudancas do projeto em commits revisaveis.
+
+1. Dados, contrato e empacotamento
+git add pyproject.toml requirements.lock .gitignore .env.example src/data_watch/__init__.py src/data_watch/schema.py src/data_watch/generate.py data/history.csv data/replay.csv data/DATA_CARD.md
+git commit -m "feat: define esquema de métricas e dados temporais sintéticos"
+
+2. Modelo e avaliação contra regras fixas
+git add src/data_watch/model.py reports/evaluation.json MODEL_CARD.md
+git commit -m "feat: avalia detector de anomalias em eventos posteriores"
+
+3. Ingestão transacional com API e replay
+git add src/data_watch/store.py src/data_watch/api.py src/data_watch/__main__.py
+git commit -m "feat: adiciona ingestão atômica e idempotente de métricas"
+
+4. Testes, automação e contêiner
+git add tests/test_data_watch.py n8n Dockerfile .dockerignore .github/workflows/ci.yml
+git commit -m "test: cobre vazamento temporal, concorrência e falhas na ingestão"
+
+5. Documentação das decisões e limitações
+   Inclui capa, diagrama, capturas, GIF, painel HTML e metadados da execucao real.
+git add README.md ARCHITECTURE.md docs/PRESENTATION.md docs/assets docs/demo COMMITS.txt LICENSE
+git commit -m "docs: explica avaliação, transações e configuração"
+

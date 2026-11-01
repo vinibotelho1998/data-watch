@@ -1,0 +1,30 @@
+{
+  "source": "Browser screenshots of the recorded API presentation; not AI-generated images.",
+  "capture_run_id": "fb64fcd462a34679bd6021d3d06c5e38",
+  "api_capture_started_at": "2026-10-27T12:53:38.792932+00:00",
+  "api_capture_finished_at": "2026-10-27T12:53:38.849590+00:00",
+  "encoded_at": "2026-10-27T13:04:10.168763+00:00",
+  "dimensions": [
+    1265,
+    730
+  ],
+  "frames": 2,
+  "timing": "Replay holds are for readability, not measured request duration.",
+  "source_record": "../demo/run.json",
+  "screenshot_sha256": "beffda0895b27539dfc84a6776e1f136539a4fe5c18213925971734830eed249",
+  "gif_sha256": "00c76caa87ecddc93666bf83e0270e713f4f1adacbca22c876bfb60ba2524bbe",
+  "steps": [
+    {
+      "id": "ingest",
+      "title": "Operação típica e anomalia injetada",
+      "hold_ms": 1800,
+      "frame_sha256": "cee5e972805f6915a4102ce4861b15a4d0112f3bf9e1e4510cfe46526a34f24c"
+    },
+    {
+      "id": "idempotent_retry",
+      "title": "Replay sem duplicar alertas",
+      "hold_ms": 2800,
+      "frame_sha256": "1689bf72222474210b4ba43f62bd98eb263f9679bb98a7ea7532fa57db53ba77"
+    }
+  ]
+}
