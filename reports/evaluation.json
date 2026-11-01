@@ -1,0 +1,899 @@
+{
+  "model": {
+    "threshold": 0.5829346673297763,
+    "model_version": "a4a7800ca7c12829",
+    "trained_until": "2025-01-03T01:55:00+00:00",
+    "trained_from": "2025-01-01T00:00:00+00:00",
+    "series_id": "demo-api",
+    "features": [
+      "requests",
+      "error_rate",
+      "latency_ms",
+      "cpu_percent"
+    ],
+    "seed": 42,
+    "threshold_quantile": 0.98,
+    "history_rows": 600,
+    "history_sha256": "660e17005af8712bb62b71a1bff4c8c057e617fb8878d8b8b7a949d846dfdcc8",
+    "sklearn_version": "1.9.1"
+  },
+  "replay_sha256": "69f6d4837cb2f3ad7e84c98aec77cc98fb3dfa85400862c68fed64a91cc675d3",
+  "evaluation_rows": 120,
+  "injected_anomalies": 12,
+  "isolation_forest": {
+    "precision": 1.0,
+    "recall": 0.5833333333333334,
+    "f1": 0.7368421052631579,
+    "confusion_matrix": [
+      [
+        108,
+        0
+      ],
+      [
+        5,
+        7
+      ]
+    ]
+  },
+  "fixed_rule_baseline": {
+    "precision": 1.0,
+    "recall": 0.75,
+    "f1": 0.8571428571428571,
+    "confusion_matrix": [
+      [
+        108,
+        0
+      ],
+      [
+        3,
+        9
+      ]
+    ]
+  },
+  "baseline_rule": "latency_ms > 300 OR error_rate > 0.10 OR cpu_percent > 90",
+  "threshold_policy": "Quantil de scores do histórico; replay e seus rótulos não ajustam modelo ou limiar",
+  "data_source": "100% sintético, com falhas injetadas explicitamente no replay",
+  "limitation": "Métricas não medem incidentes reais; o baseline pode superar o modelo em falhas óbvias.",
+  "events": [
+    {
+      "timestamp": "2025-01-03T02:00:00+00:00",
+      "score": 0.4350838435930871,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:05:00+00:00",
+      "score": 0.39672664060232316,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:10:00+00:00",
+      "score": 0.42534837023987154,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:15:00+00:00",
+      "score": 0.4227202158080438,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:20:00+00:00",
+      "score": 0.41334789257399973,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:25:00+00:00",
+      "score": 0.4214451150348773,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:30:00+00:00",
+      "score": 0.4081716419539163,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:35:00+00:00",
+      "score": 0.4236819332740667,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:40:00+00:00",
+      "score": 0.5717520853594359,
+      "is_anomaly": false,
+      "expected": true,
+      "injected_kind": "latency_spike"
+    },
+    {
+      "timestamp": "2025-01-03T02:45:00+00:00",
+      "score": 0.4712147091865034,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:50:00+00:00",
+      "score": 0.4649209603341905,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T02:55:00+00:00",
+      "score": 0.39406420671529113,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:00:00+00:00",
+      "score": 0.43041573335176625,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:05:00+00:00",
+      "score": 0.5076485646081842,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:10:00+00:00",
+      "score": 0.41053852565254234,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:15:00+00:00",
+      "score": 0.4372410510299433,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:20:00+00:00",
+      "score": 0.44556662070033065,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:25:00+00:00",
+      "score": 0.5547879210893694,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:30:00+00:00",
+      "score": 0.4270598979404455,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:35:00+00:00",
+      "score": 0.6052924319610891,
+      "is_anomaly": true,
+      "expected": true,
+      "injected_kind": "error_burst"
+    },
+    {
+      "timestamp": "2025-01-03T03:40:00+00:00",
+      "score": 0.46068589126804627,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:45:00+00:00",
+      "score": 0.4209862915387062,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:50:00+00:00",
+      "score": 0.47534924938835904,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T03:55:00+00:00",
+      "score": 0.4401306282066688,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:00:00+00:00",
+      "score": 0.4604858550699778,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:05:00+00:00",
+      "score": 0.5036625740605004,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:10:00+00:00",
+      "score": 0.40372562511536647,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:15:00+00:00",
+      "score": 0.6121179292137819,
+      "is_anomaly": true,
+      "expected": true,
+      "injected_kind": "traffic_spike"
+    },
+    {
+      "timestamp": "2025-01-03T04:20:00+00:00",
+      "score": 0.5098321182084201,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:25:00+00:00",
+      "score": 0.5193943613138727,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:30:00+00:00",
+      "score": 0.4784922944807468,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:35:00+00:00",
+      "score": 0.4722368053806559,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:40:00+00:00",
+      "score": 0.4844481651214993,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:45:00+00:00",
+      "score": 0.5358045708049479,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T04:50:00+00:00",
+      "score": 0.6003482857341133,
+      "is_anomaly": true,
+      "expected": true,
+      "injected_kind": "cpu_saturation"
+    },
+    {
+      "timestamp": "2025-01-03T04:55:00+00:00",
+      "score": 0.5050539264790787,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:00:00+00:00",
+      "score": 0.5134846896378065,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:05:00+00:00",
+      "score": 0.46269480482854186,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:10:00+00:00",
+      "score": 0.44428114073037067,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:15:00+00:00",
+      "score": 0.4400428935833044,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:20:00+00:00",
+      "score": 0.5440051176601833,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:25:00+00:00",
+      "score": 0.48511976084794856,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:30:00+00:00",
+      "score": 0.43313954784862857,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:35:00+00:00",
+      "score": 0.5134553976249318,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:40:00+00:00",
+      "score": 0.48617371162536915,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:45:00+00:00",
+      "score": 0.5059976359388164,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:50:00+00:00",
+      "score": 0.563172434328262,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T05:55:00+00:00",
+      "score": 0.5240950152859123,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:00:00+00:00",
+      "score": 0.6279436980311971,
+      "is_anomaly": true,
+      "expected": true,
+      "injected_kind": "latency_spike"
+    },
+    {
+      "timestamp": "2025-01-03T06:05:00+00:00",
+      "score": 0.4389134818671203,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:10:00+00:00",
+      "score": 0.48075846857475774,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:15:00+00:00",
+      "score": 0.5140095215985707,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:20:00+00:00",
+      "score": 0.49002614436023995,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:25:00+00:00",
+      "score": 0.5010652884485327,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:30:00+00:00",
+      "score": 0.5164728592007648,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:35:00+00:00",
+      "score": 0.4465384510913756,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:40:00+00:00",
+      "score": 0.5131426710765349,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:45:00+00:00",
+      "score": 0.4265753134199277,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:50:00+00:00",
+      "score": 0.46032668643764235,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T06:55:00+00:00",
+      "score": 0.6081696457133954,
+      "is_anomaly": true,
+      "expected": true,
+      "injected_kind": "error_burst"
+    },
+    {
+      "timestamp": "2025-01-03T07:00:00+00:00",
+      "score": 0.42278701158694826,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:05:00+00:00",
+      "score": 0.5460392993142152,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:10:00+00:00",
+      "score": 0.46118057226098386,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:15:00+00:00",
+      "score": 0.47087486979647014,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:20:00+00:00",
+      "score": 0.4393746177211405,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:25:00+00:00",
+      "score": 0.5051307228113785,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:30:00+00:00",
+      "score": 0.39200197232993217,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:35:00+00:00",
+      "score": 0.47665428741459415,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:40:00+00:00",
+      "score": 0.6445577316739498,
+      "is_anomaly": true,
+      "expected": true,
+      "injected_kind": "traffic_spike"
+    },
+    {
+      "timestamp": "2025-01-03T07:45:00+00:00",
+      "score": 0.42621275168560224,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:50:00+00:00",
+      "score": 0.49291781699699466,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T07:55:00+00:00",
+      "score": 0.41362039645004284,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:00:00+00:00",
+      "score": 0.4179730461531225,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:05:00+00:00",
+      "score": 0.511874081358162,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:10:00+00:00",
+      "score": 0.46350989045619106,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:15:00+00:00",
+      "score": 0.4478675032462674,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:20:00+00:00",
+      "score": 0.4488739439971594,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:25:00+00:00",
+      "score": 0.4152440493343516,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:30:00+00:00",
+      "score": 0.44221888893740086,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:35:00+00:00",
+      "score": 0.5479197980211888,
+      "is_anomaly": false,
+      "expected": true,
+      "injected_kind": "cpu_saturation"
+    },
+    {
+      "timestamp": "2025-01-03T08:40:00+00:00",
+      "score": 0.43785956521265207,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:45:00+00:00",
+      "score": 0.46761324501799745,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:50:00+00:00",
+      "score": 0.4318243767260665,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T08:55:00+00:00",
+      "score": 0.43956381427877195,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:00:00+00:00",
+      "score": 0.4342093220518169,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:05:00+00:00",
+      "score": 0.4317103275126057,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:10:00+00:00",
+      "score": 0.44962350445252147,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:15:00+00:00",
+      "score": 0.3945462243574775,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:20:00+00:00",
+      "score": 0.5464629882000203,
+      "is_anomaly": false,
+      "expected": true,
+      "injected_kind": "latency_spike"
+    },
+    {
+      "timestamp": "2025-01-03T09:25:00+00:00",
+      "score": 0.41253100517018454,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:30:00+00:00",
+      "score": 0.50497506286402,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:35:00+00:00",
+      "score": 0.48732751053877565,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:40:00+00:00",
+      "score": 0.46758992869279825,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:45:00+00:00",
+      "score": 0.44606816926406945,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:50:00+00:00",
+      "score": 0.41462212998325865,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T09:55:00+00:00",
+      "score": 0.4601010202190521,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:00:00+00:00",
+      "score": 0.4848577425515955,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:05:00+00:00",
+      "score": 0.44705549647888404,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:10:00+00:00",
+      "score": 0.6162168238108572,
+      "is_anomaly": true,
+      "expected": true,
+      "injected_kind": "error_burst"
+    },
+    {
+      "timestamp": "2025-01-03T10:15:00+00:00",
+      "score": 0.39017918233375737,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:20:00+00:00",
+      "score": 0.518896663648262,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:25:00+00:00",
+      "score": 0.41246235083000465,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:30:00+00:00",
+      "score": 0.43796780940990426,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:35:00+00:00",
+      "score": 0.4311827399597695,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:40:00+00:00",
+      "score": 0.45036442331421517,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:45:00+00:00",
+      "score": 0.39596420749741384,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:50:00+00:00",
+      "score": 0.4123410064096359,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T10:55:00+00:00",
+      "score": 0.5707633958431046,
+      "is_anomaly": false,
+      "expected": true,
+      "injected_kind": "traffic_spike"
+    },
+    {
+      "timestamp": "2025-01-03T11:00:00+00:00",
+      "score": 0.4852932533755059,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:05:00+00:00",
+      "score": 0.3894474729030856,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:10:00+00:00",
+      "score": 0.4396439776874133,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:15:00+00:00",
+      "score": 0.39856679485385926,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:20:00+00:00",
+      "score": 0.4694876876342032,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:25:00+00:00",
+      "score": 0.5286966744960253,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:30:00+00:00",
+      "score": 0.4273472570205513,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:35:00+00:00",
+      "score": 0.4467127935692099,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:40:00+00:00",
+      "score": 0.5277476118264158,
+      "is_anomaly": false,
+      "expected": true,
+      "injected_kind": "cpu_saturation"
+    },
+    {
+      "timestamp": "2025-01-03T11:45:00+00:00",
+      "score": 0.40873290709691423,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:50:00+00:00",
+      "score": 0.4173287166376269,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    },
+    {
+      "timestamp": "2025-01-03T11:55:00+00:00",
+      "score": 0.43840415560814955,
+      "is_anomaly": false,
+      "expected": false,
+      "injected_kind": "none"
+    }
+  ]
+}
